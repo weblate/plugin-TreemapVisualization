@@ -48,6 +48,10 @@ class API extends \Piwik\Plugin\API
         $availableHeight = false,
         $show_evolution_values = false
     ) {
+        if (trim($apiMethod) === 'TreemapVisualization.getTreemapData') {
+            return [];
+        }
+
         if (
             $period == 'range'
             || Common::getRequestVar('idSubtable', false)
